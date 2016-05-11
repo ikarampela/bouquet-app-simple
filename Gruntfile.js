@@ -1,5 +1,13 @@
 module.exports = function(grunt) {
     grunt.initConfig({
+        connect: {
+            server: {
+                options: {
+                    port: 8080,
+                    hostname: 'localhost',
+                }
+            }
+        },
         jshint : {
             all : [ 'app/**/*.js' ],
             options: {
@@ -103,10 +111,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-wiredep-copy');
     grunt.loadNpmTasks('grunt-cache-bust');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
-    grunt.registerTask('build', [ 'jshint', 'clean', 'handlebars', 'concat',
-                                    'copy', 'sass', 'wiredep', 'wiredepCopy']);
+    grunt.registerTask('build', ['jshint', 'clean', 'handlebars', 'concat',
+                                 'copy', 'sass', 'wiredep', 'wiredepCopy']);
+
     grunt.registerTask('dist', [ 'build', 'cacheBust' ]);
 
     grunt.registerTask('default', [ 'dist' ]);
+
+    grunt.registerTask('run', [ 'build', 'connect:server:keepalive' ]);
 };
