@@ -1,4 +1,4 @@
-Bouquet simple app
+Bouquet Simple App
 ==================
 
 Base skeleton App for JSSDK. 

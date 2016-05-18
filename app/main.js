@@ -12,19 +12,27 @@ $( document ).ready(function() {
     });
     
     /*
-     * Controller part
+     * Default Controllers
      */
+    // define default filters behavior
     new API.controller.FiltersController();
+    // define a base analysis
     var analysis = (new API.controller.AnalysisController()).model;
 
     /*
-     * Declare the views
+     * Default Views
      */
     new API.view.LoginView();
     new API.view.StatusView();
     
     /*
-     * Start the App
+     * Custom code
+     */
+    
+    // Your code goes here
+    
+    /*
+     * Start the API
      */
     API.init();
 });
