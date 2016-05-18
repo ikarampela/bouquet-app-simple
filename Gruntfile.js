@@ -3,8 +3,9 @@ module.exports = function(grunt) {
         connect: {
             server: {
                 options: {
-                    port: 8080,
+                    port: 8081,
                     hostname: 'localhost',
+                    base : 'dist'
                 }
             }
         },
@@ -120,5 +121,5 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', [ 'dist' ]);
 
-    grunt.registerTask('run', [ 'build', 'connect:server:keepalive' ]);
+    grunt.registerTask('run', [ 'build', 'connect:server', 'watch' ]);
 };
