@@ -2,7 +2,9 @@ $( document ).ready(function() {
     
     /*
      * API Setup
+     * You need to set here your project and bookmark ids
      */
+    
     var API = squid_api.setup({
         "clientId" : "simple-app",
         "config" : {
@@ -14,6 +16,7 @@ $( document ).ready(function() {
     /*
      * Default Controllers
      */
+    
     // define default filters behavior
     new API.controller.FiltersController();
     // define a base analysis
@@ -22,6 +25,7 @@ $( document ).ready(function() {
     /*
      * Default Views
      */
+    
     new API.view.LoginView();
     new API.view.StatusView();
     
@@ -34,5 +38,6 @@ $( document ).ready(function() {
     /*
      * Start the API
      */
+    
     API.init();
 });
