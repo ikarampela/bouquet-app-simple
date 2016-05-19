@@ -33,7 +33,17 @@ $( document ).ready(function() {
      * Custom code
      */
     
-    // Your code goes here
+    // listen for analysis changes
+    analysis.on("change", function(a1) {
+        var results = a1.get("results");
+        if (results) {
+            var data = results;
+            $("#main").html("<pre>"+JSON.stringify(data, null, ' ')+"</pre>");
+        } else {
+            $("#main").html("Analysis status : "+a1.get("status"));
+        }
+    });
+
     
     /*
      * Start the API
